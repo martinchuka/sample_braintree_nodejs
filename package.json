@@ -1,0 +1,23 @@
+{
+  "name": "braintree-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "@koa/cors": "^3.0.0",
+    "braintree": "^2.18.0",
+    "esm": "^3.2.25",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon -r esm ./main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

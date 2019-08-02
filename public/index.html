@@ -1,0 +1,102 @@
+<!DocType HTML>
+
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Braintree DropIn Sample</title>
+        <base href="/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="./index.js"></script>
+
+    <style>
+
+        body{
+            width: 100%;
+            height: 100%;
+            background: #fbfbfb;
+        }
+        .container{
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+    <div class="message primary-bg light-text"></div>
+
+    <div class="customer-form">
+        <h4>To Proceed Create a customer</h4>
+        <form onsubmit="event.preventDefault(); dropIn.createCustomer()">
+            <div class="form-group">
+                <label>Customer First Name</label>
+                <input class="form-control" id="firstname" required type="text" minlength="5" placeholder="Customer First Name"/>
+                <span>FirstName must be greater than 5 characters</span>
+            </div>
+            <div class="form-group">
+                <label>Customer Last Name</label>
+                <input type="text" class="form-control" id="lastname" required minlength="5" placeholder="Customer Last Name"/>
+                <span>Last Name must be greater than 5 characters</span>
+            </div>
+            <div class="form-group">
+                <label>Customer E-mail</label>
+                <input type="email" class="form-control" id="email" required  placeholder="Customer E-mail"/>
+                <span>Valid E-mail</span>
+            </div>
+            <button class="btn btn-primary" type="submit">Create Customer</button>
+
+        </form>
+
+
+    </div>
+
+
+    <div id="dropin-wrapper">
+        <p>Test Card <span>5555 5555 5555 4444</span></p>
+        <div class="form-group">
+            <label>Payment Type</label>
+            <select id="paymentType">
+                <option value="subscription">Subscription</option>
+                <option value="oneTime" selected>One Time Payment</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Payment Amount</label>
+            <select id="paymentAmount">
+                <option value="30.00">$ 30.00</option>
+                <option value="60.00">$ 60.00</option>
+                <option value="90.00">$ 90.00</option>
+                <option value="120.00">$ 120.00</option>
+                <option value="150.00">$ 150.00</option>
+            </select>
+        </div>
+        <div id="checkout-message"></div>
+        <div id="dropin-container"></div>
+        <button id="submit-button">Submit payment</button>
+    </div>
+
+</div>
+
+
+
+<!-- includes the Braintree JS client SDK -->
+<script src="https://js.braintreegateway.com/web/dropin/1.19.0/js/dropin.min.js"></script>
+
+<!-- includes jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        dropIn.setup();
+    })
+</script>
+</body>
+</html>
